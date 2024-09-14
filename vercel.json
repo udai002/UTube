@@ -1,8 +1,17 @@
 {
-    "redirects": [
+    "version": 2,
+    "builds": [
       {
-        "source": "/(.*)"
-        
+        "src": "index.tsx",
+        "use": "@now/node"
+      }
+    ],
+    "routes": [
+      {
+       
+        "src": "/(.*)",
+     
+        "dest": "index.tsx"
       }
     ]
-  }
+}

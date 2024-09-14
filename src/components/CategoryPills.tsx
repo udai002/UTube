@@ -40,7 +40,7 @@ export const CategoryPills = ({ categories, selectCategory, onSelect }: Category
         <div className="flex whitespace-nowrap gap-3 transition-transform w-[max-content] ml-12 md:ml-10" style={{ transform: `translateX(-${translate}px)` }} >
             {categories.map(item => <Button className="px-2 py-1" variant={`${item === selectCategory ? "dark" : "default"}`} onClick={() => onSelect(item)}>{item}</Button>)}
         </div>
-        {isleftVisible && <div className="absolute top-1/2 left-0 -translate-y-4 bg-gradient-to-r from-white from-50% to-transparent w-24 h-full ">
+        {isleftVisible && <div className="absolute top-1/2 left-0 -translate-y-4     bg-gradient-to-r from-white from-50% to-transparent w-24 h-full ">
             <Button variant="ghost" size="icon" className="h-full aspect-square" onClick={() => {
                 setTranslate(translate => {
                     const newTranslate = translate - TRANSLATE_AMOUNT

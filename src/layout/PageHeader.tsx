@@ -41,9 +41,12 @@ export const PageHeader = () => {
       <Button variant="ghost" size="icon">
         <FiBell />
       </Button>
-      <Button variant="ghost" size="icon">
-        <FaRegUser />
+      <Button variant='ghost' className='border-2 rounded-full flex items-center border-blue-400 font-bold text-blue-400 px-6 '>
+      <FaRegUser className='mr-2' /> Sigin
       </Button>
+      {/* <Button variant="ghost" size="icon">
+        <FaRegUser />
+      </Button> */}
     </div>
   </div>
 }
@@ -60,6 +63,6 @@ export function FirstSectionHeader({hidden}:FirstSectionHeaderProps){
   <Button variant="ghost" size="icon" onClick={toggle} >
     <MdMenu className="text-xl" />
   </Button>
-  <a href="#" className='flex items-center'><FaYoutube className='text-red-500 text-4xl mr-1'/><h1>UTube</h1></a>
+  <a href="/" className='flex items-center'><FaYoutube className='text-red-500 text-4xl mr-1'/><h1>UTube</h1></a>
 </div>
 }

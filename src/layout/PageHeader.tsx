@@ -9,10 +9,13 @@ import { FaMicrophone , FaArrowLeft  } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 import { FaYoutube } from "react-icons/fa";
 import { useSidebar } from '../context/SiderbarContext';
+import { Link } from 'react-router-dom';
+import { Upload } from '../pages/Upload';
 
 export const PageHeader = () => {
  
   const [showFullWidthSearch , setShowFullWidthSearch] = useState(false) ;
+  const [showUpload ,setShowUpload] = useState(false)
   return <div className="flex gap-10 lg:gap-20 justify-between p-4">
 
     <FirstSectionHeader hidden={showFullWidthSearch} />
@@ -35,19 +38,25 @@ export const PageHeader = () => {
       {/* <Button variant="ghost" size="icon" className="md:hidden">
         <FaMicrophone />
       </Button> */}
-      <Button variant="ghost" size="icon">
+      <Button variant="ghost" onClick={()=>{setShowUpload(true)}} size="icon">
         <MdOutlineFileUpload />
       </Button>
-      <Button variant="ghost" size="icon">
+      <Button variant="ghost" className='hidden md:block' size="icon">
         <FiBell />
       </Button>
-      <Button variant='ghost' className='border-2 rounded-full flex items-center border-blue-400 font-bold text-blue-400 px-6 '>
-      <FaRegUser className='mr-2' /> Sigin
+      <Button variant='ghost' className='border-2 rounded-full flex  border-blue-400 font-bold text-blue-400 px-4 '>
+        <Link to='/signin' className='flex items-center'>
+      <FaRegUser className='mr-2 hidden md:block' /> Sigin
+        </Link>
       </Button>
       {/* <Button variant="ghost" size="icon">
         <FaRegUser />
       </Button> */}
     </div>
+   {showUpload?<>
+     <div className='fixed w-full min-h-screen bg-black opacity-75 top-0 left-0 z-[1000]' onClick={()=>{setShowUpload(false)}}>
+    </div>
+      <Upload setShowUpload={setShowUpload} /> </>:""}
   </div>
 }
 

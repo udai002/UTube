@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
 import { SyntheticEvent, useState } from "react";
 import Cookies from "js-cookie";
+import { LoaderContainer } from '../components/Loader';
 
 export  const Signin = ()=>{ 
     
@@ -11,6 +12,7 @@ export  const Signin = ()=>{
     const [showPass , setShowPass] = useState(false)
     const [showError , setShowError] = useState(false)
     const [userError , setUserError] = useState(false)
+    const [isLoading , setIsLoading] = useState(false)
 
     const navigation = useNavigate()
 
@@ -40,7 +42,10 @@ export  const Signin = ()=>{
                 method:"POST",
                 body:information
             }
+            console.log("started fetching...")
+            setIsLoading(true)
             const response = await fetch("https://protube-backend-t25f.onrender.com/api/user/login" , options)
+            setIsLoading(false)
             if(response.ok){
                 setUserError(false)
                 const data = await response.json();
@@ -57,6 +62,7 @@ export  const Signin = ()=>{
     }
 
     return <div className="flex justify-center bg-gray-100 items-center h-screen w-full">
+    {isLoading?<LoaderContainer/>:""}
     <div className="p-20 bg-white w-[400px]">
         <form className="flex flex-col justify-stretch w-full" onSubmit={submitForm}>
             <h1 className="text-center font-bold text-2xl mb-6">Sigin in</h1>

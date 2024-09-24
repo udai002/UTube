@@ -3,9 +3,15 @@ import { Navigations } from "../layout/Navigations"
 import { Button } from "../components/Button";
 import { ChannelCategories } from "../components/ChannelCategories";
 import { ChannelVideos } from "../components/ChannelVideos";
+import { useParams } from "react-router-dom";
 
 
 export const Channel = ()=>{
+
+    const params = useParams()
+   
+
+
     return <Navigations>
         <div>
             <img src={'/cover.jpg'} alt='cover photo' className="rounded-md w-full h-20 md:h-40" />
